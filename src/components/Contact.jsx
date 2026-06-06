@@ -27,7 +27,7 @@ function validateForm(data) {
   if (!data.email.trim()) {
     errors.email = "Ingresa un email de contacto.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-    errors.email = "Ingresa un email valido.";
+    errors.email = "Ingresa un email válido.";
   }
 
   if (!data.mensaje.trim()) {
@@ -91,11 +91,11 @@ function Contact() {
               <SectionHeading
                 eyebrow="Contacto"
                 title="Hablemos de qué parte de tu operación conviene ordenar primero."
-                description="Te respondemos con una mirada inicial y una propuesta simple para avanzar."
+                description="Contanos brevemente cómo trabaja tu empresa y te respondemos con una mirada inicial para avanzar con criterio."
               />
 
               <div className="flex flex-wrap gap-3">
-                {["Dashboards", "Automatización", "Procesos", "Reportes"].map((item) => (
+                {["Diagnóstico", "Dashboards", "Automatización", "Procesos", "Reportes"].map((item) => (
                   <span key={item} className="rounded-full border border-line bg-surface px-4 py-2 text-sm text-ink-soft">
                     {item}
                   </span>
@@ -120,6 +120,10 @@ function Contact() {
                   {CONTACT_CHANNELS.EMAIL}
                 </a>
               </div>
+
+              <p className="rounded-[1.4rem] border border-line bg-surface px-5 py-4 text-sm leading-6 text-ink-soft">
+                El diagnóstico inicial nos sirve para escuchar, entender el contexto y sugerir un camino posible. Después decidimos juntos si tiene sentido avanzar.
+              </p>
             </div>
           </Reveal>
 
@@ -165,7 +169,7 @@ function Contact() {
               </div>
 
               <FormField
-                label="Telefono / WhatsApp"
+                label="Teléfono / WhatsApp"
                 name="telefono"
                 value={formData.telefono}
                 error={errors.telefono}
@@ -174,7 +178,7 @@ function Contact() {
               />
 
               <FormField
-                label="Que queres mejorar"
+                label="Qué querés mejorar"
                 name="mensaje"
                 value={formData.mensaje}
                 error={errors.mensaje}

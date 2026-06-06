@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { INDUSTRY_USE_CASES } from "../data/siteContent";
+import { INDUSTRY_LIST, INDUSTRY_USE_CASES } from "../data/siteContent";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
@@ -10,7 +10,7 @@ function UseCases() {
         <Reveal>
           <SectionHeading
             eyebrow="Casos de uso"
-            title="Aplicado a la operación diaria de distintos tipos de pymes."
+            title="Aplicado a la operación diaria de distintos tipos de empresas."
             description="La tecnología funciona cuando baja a procesos concretos: vender, entregar, cobrar, producir y reportar."
           />
         </Reveal>
@@ -42,6 +42,24 @@ function UseCases() {
             );
           })}
         </div>
+
+        <Reveal delay={120}>
+          <div className="space-y-5">
+            <div className="flex flex-wrap gap-3">
+              {INDUSTRY_LIST.map((industry) => (
+                <span key={industry} className="rounded-full border border-line bg-white/80 px-4 py-2 text-sm font-medium text-ink-soft">
+                  {industry}
+                </span>
+              ))}
+              <span className="rounded-full border border-forest/20 bg-forest/8 px-4 py-2 text-sm font-semibold text-forest">
+                Y otros negocios con procesos por ordenar
+              </span>
+            </div>
+            <p className="max-w-3xl text-base leading-7 text-ink-soft">
+              Desde una empresa chica que está armando sus primeros controles hasta una operación con varios equipos, el punto de partida es el mismo: entender cómo fluye el trabajo y qué información falta para decidir mejor.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

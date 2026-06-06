@@ -2,10 +2,8 @@ import { useEffect } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Problems from "./components/Problems";
-import Services from "./components/Services";
-import UseCases from "./components/UseCases";
 import Process from "./components/Process";
-import Packages from "./components/Packages";
+import WhyTrevo from "./components/WhyTrevo";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
@@ -29,10 +27,8 @@ function App() {
       <main>
         <Hero />
         <Problems />
-        <Services />
-        <UseCases />
         <Process />
-        <Packages />
+        <WhyTrevo />
         <Contact />
       </main>
 

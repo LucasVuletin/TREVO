@@ -1,38 +1,53 @@
-import { COMMON_PROBLEMS } from "../data/siteContent";
+import { COMMON_PROBLEMS, SERVICE_PILLARS } from "../data/siteContent";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 
 function Problems() {
   return (
-    <section id="problemas" className="px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-7xl space-y-12">
+    <section id="diagnostico" className="scroll-mt-32 px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl space-y-10">
         <Reveal>
           <SectionHeading
-            eyebrow="Problemas comunes"
-            title="Cuando la pyme crece, el desorden operativo empieza a costar."
-            description="TREVO ayuda a transformar tareas sueltas en sistemas simples, medibles y fáciles de usar."
+            eyebrow="Diagnóstico"
+            title="Lo que suele trabar la operación, y cómo lo ordenamos."
+            description="Una lectura rápida de los dolores más comunes y las herramientas simples que usamos para resolverlos."
           />
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {COMMON_PROBLEMS.map((problem, index) => {
-            const Icon = problem.icon;
+        <div className="grid gap-8 lg:grid-cols-2">
+          <Column title="Problemas comunes" items={COMMON_PROBLEMS} tone="light" />
+          <Column title="Soluciones TREVO" items={SERVICE_PILLARS} tone="accent" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Column({ title, items, tone }) {
+  return (
+    <Reveal>
+      <div className="space-y-4">
+        <h3 className="font-display text-2xl font-semibold text-ink">{title}</h3>
+        <div className="divide-y divide-line overflow-hidden rounded-[1.6rem] border border-line bg-white/88 shadow-soft">
+          {items.map((item) => {
+            const Icon = item.icon;
+            const iconClass = tone === "accent" ? "bg-forest text-white" : "bg-forest/8 text-forest";
 
             return (
-              <Reveal key={problem.title} delay={index * 70}>
-                <article className="h-full rounded-[1.6rem] border border-line bg-white/90 p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-forest/20">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-forest/8 text-forest">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-6 font-display text-xl font-semibold text-ink">{problem.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-ink-soft">{problem.description}</p>
-                </article>
-              </Reveal>
+              <article key={item.title} className="grid gap-4 p-5 sm:grid-cols-[auto_1fr]">
+                <div className={`flex h-11 w-11 items-center justify-center rounded-2xl ${iconClass}`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="font-display text-lg font-semibold text-ink">{item.title}</h4>
+                  <p className="mt-1 text-sm leading-6 text-ink-soft">{item.description}</p>
+                </div>
+              </article>
             );
           })}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
 
