@@ -155,7 +155,7 @@ export const FOUNDER_PROFILES = [
   },
   {
     initials: "SB",
-    name: "Seba",
+    name: "Sebastian",
     role: "Ingeniero en Petróleo ITBA · Desarrollo y exploración en Pampa Energía · Co-founder TREVO",
   },
 ];
